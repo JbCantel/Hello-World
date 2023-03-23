@@ -12,38 +12,33 @@
     <button id="login" onclick="user.login()">Entrar</button>
     
 <script>
-/* 
-Esse é o código JavaScript dessa página.
-*/
- 
-var name = 'joca da silva'
-var email = 'joca@silva.com'
-var birth = '2003-03-18'
-var CPF = '012.345.678-90'
-var password = 'Rua do Siri Molhado, 22'
-var address = 'Rua do Siri Molhado, 22'
 
 
 // Dados do usuáro. Forma moderna!
 var user = {
+
+    //Atributos do objeto "user".
      name : 'joca da silva',
     email : 'joca@silva.com',
     birth : '2003-03-18',
     CPF : '012.345.678-90' ,
     password: '12345',
     address : 'Rua do Siri Molhado, 22',
+    photo : 'https://randomuser.me/api/portraits/men/36.jpg',
+
+    // Métodos do objeto "user"
     login: function(){
        
         // Recebe o e-mail do prompt e armazena.
        var userEmail = prompt('Digite seu nome e e-mail')
 
        // se o usuário não digitou nada ...
-        if(userEmail == '' || userEmail == false) {
+        if(userEmail == '' || userEmail == null) {
             alert ( "Oooops! Você não informou um e-mail...")
          // Encerra função retornando false
             return false
         } else if(userEmail != user.email){
-            alert('Oooops ! email não cadstrado...')
+            alert('Oooops ! email não cadastrado...')
             return false
         }
            
@@ -54,7 +49,21 @@ var user = {
                 
                 // encerra a função retornando false
                 return false
+            } else if (userPass != user.password) {
+                alert( "Oooops ! senha incorreta... ")
+                return false
             }
+
+            document.write('<img src="' + user.photo + '"> Olá ' + user.name + ' !')
+            localStorage.userdata = JSON.stringify({
+                name : user.name,
+                email : user,email
+            
+            })
+            let parts = user.birth.split('-')
+            let bdate = parts [2] + '/' + parts[1] + '/' + parts [0]
+            document.write
+
 
     },
     firstname: function(name) {
