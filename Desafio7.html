@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
-    <button id="login" onclick="user.login()">Entrar</button>
 
-<script>
- var birth = '2023-03-23'
+    <button id="login" onclick="idade()">Entrar</button>
 
- login: function(){
-       var userbirth = prompt('Digite sua idade no formato dd/mm/aaaa')
-    }
-     
-    
-    let parts = user.birth.split('-')
-            let bdate = parts [2] + '/' + parts[1] + '/' + parts [0]
-            document.write
+    <script>
 
+        function idade() {
+            let userbirth = prompt('Digite sua idade no formato dd/mm/aaaa')
+            let parts = userbirth.split('/')
 
-</script>
+            let date = new Date()
+
+            let dia = date.getDate()
+            let mes = date.getMonth() + 1
+            let ano = date.getFullYear()
+            let idade = ano - parts[2]
+            if (parts[1] > mes) {
+                idade--
+            } else if (parts[1] == mes && parts[0] > dia) {
+                idade--
+            }
+
+            document.write(`você tem ${idade}  anos`)
+
+        }
+
+    </script>
 
 </body>
+
 </html>
